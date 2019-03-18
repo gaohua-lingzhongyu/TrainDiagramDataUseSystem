@@ -1,0 +1,17 @@
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\沪宁高铁数据.exe.config
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\沪宁高铁数据.exe
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\沪宁高铁数据.pdb
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\obj\Debug\沪宁高铁数据.csprojAssemblyReference.cache
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\obj\Debug\沪宁高铁数据.csproj.CoreCompileInputs.cache
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\obj\Debug\沪宁高铁数据.csproj.CopyComplete
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\obj\Debug\沪宁高铁数据.exe
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\obj\Debug\沪宁高铁数据.pdb
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\Newtonsoft.Json.dll
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\Newtonsoft.Json.xml
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\NPOI.dll
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\NPOI.OOXML.dll
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\沪宁高铁数据\沪宁高铁数据\bin\Debug\ICSharpCode.SharpZipLib.xml

@@ -1,0 +1,12 @@
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\bin\Debug\毕业设计.exe.config
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\bin\Debug\毕业设计.exe
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\bin\Debug\毕业设计.pdb
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\obj\Debug\毕业设计.csprojAssemblyReference.cache
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\obj\Debug\毕业设计.Form1.resources
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\obj\Debug\毕业设计.Properties.Resources.resources
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\obj\Debug\毕业设计.csproj.GenerateResource.cache
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\obj\Debug\毕业设计.csproj.CoreCompileInputs.cache
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\obj\Debug\毕业设计.exe
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\obj\Debug\毕业设计.pdb
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\obj\Debug\毕业设计.Main.resources
+C:\Users\我是佟丽娅\Documents\C#资料\毕业设计\毕业设计\obj\Debug\毕业设计.NewProject.resources
