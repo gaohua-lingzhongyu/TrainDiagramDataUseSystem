@@ -75,6 +75,12 @@
     <Compile Include="Form_trainTimeData.Designer.cs">
       <DependentUpon>Form_trainTimeData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_trainTimeTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_trainTimeTable.Designer.cs">
+      <DependentUpon>Form_trainTimeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Line.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_trainTimeData.resx">
       <DependentUpon>Form_trainTimeData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_trainTimeTable.resx">
+      <DependentUpon>Form_trainTimeTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

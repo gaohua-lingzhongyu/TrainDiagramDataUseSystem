@@ -31,3 +31,4 @@ C:\Users\我是佟丽娅\Documents\C#资料\gaohua-lingzhongyu\TrainDiagramDataU
 C:\Users\我是佟丽娅\Documents\C#资料\gaohua-lingzhongyu\TrainDiagramDataUseSystem\高华毕业设计\列车运行图数据综合运用系统\毕业设计\bin\Debug\NPOI.OpenXmlFormats.dll
 C:\Users\我是佟丽娅\Documents\C#资料\gaohua-lingzhongyu\TrainDiagramDataUseSystem\高华毕业设计\列车运行图数据综合运用系统\毕业设计\bin\Debug\ICSharpCode.SharpZipLib.xml
 C:\Users\我是佟丽娅\Documents\C#资料\gaohua-lingzhongyu\TrainDiagramDataUseSystem\高华毕业设计\列车运行图数据综合运用系统\毕业设计\obj\Debug\毕业设计.csproj.CopyComplete
+C:\Users\我是佟丽娅\Documents\C#资料\gaohua-lingzhongyu\TrainDiagramDataUseSystem\高华毕业设计\列车运行图数据综合运用系统\毕业设计\obj\Debug\毕业设计.Form_trainTimeTable.resources

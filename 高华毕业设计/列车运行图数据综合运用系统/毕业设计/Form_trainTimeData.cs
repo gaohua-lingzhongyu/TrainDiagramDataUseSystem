@@ -11,7 +11,7 @@ namespace 毕业设计
     {
         private DataSet _dataSet;
         private DataTable _dataTable;
-
+        string selectedTrainId;
         public Form_trainTimeData()
         {
             InitializeComponent();
@@ -115,17 +115,31 @@ namespace 毕业设计
                     InitialDirectory = Directory.GetCurrentDirectory(),
                     FileName = (DateTime.Now.ToString("yyyyMMddhhmmss") + "车次表.xlsx").Replace(" ", "") //初始文件名
                 };
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    Excel.TableToExcel(_dataTable, saveFileDialog.FileName);
-                    MessageBox.Show($"文件保存成功，路径为{saveFileDialog.FileName}");
-                }
+                if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+                Excel.TableToExcel(_dataTable, saveFileDialog.FileName);
+                MessageBox.Show($"文件保存成功，路径为{saveFileDialog.FileName}");
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
-                throw;
+                MessageBox.Show(exception.Message+"操作有误，请重新筛选数据并导出");
+
             }
+        }
+
+        private void datagridview_trainId_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow dr  in datagridview_trainId.Rows)
+            {
+                if (dr.Selected != true) continue;
+                selectedTrainId = dr.Cells[2].Value.ToString();//被选中的车次
+                MessageBox.Show($"您被选中的车次是{selectedTrainId}");
+            }
+
+
+            //将被选中车次的时刻表进行查询
+
+
+
         }
     }
 }

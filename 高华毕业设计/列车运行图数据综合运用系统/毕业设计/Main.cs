@@ -52,6 +52,8 @@ namespace 毕业设计
 
         private void 具体车次时刻表生成ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form_trainTimeTable formTrainTimeTable=new Form_trainTimeTable() { TopLevel = false, Parent = this };
+            formTrainTimeTable.Show();
         }
     }
 }
