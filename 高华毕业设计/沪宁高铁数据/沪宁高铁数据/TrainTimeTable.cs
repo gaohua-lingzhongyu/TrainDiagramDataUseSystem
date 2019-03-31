@@ -1,41 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
-using System.IO;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Data;
+using System.Data.SqlClient;
+using  System.Threading;
 
 namespace 沪宁高铁数据
 {
-    class TrainTimeTable
+    internal class TrainTimeTable:IDataTable2SqlServerAble
     {
-        public  string trainTimeTableUrl;//当前列车车次的服务器地址
-        public string trainNo;//车次号
-        public string fromStation;//起点站
-        public string endStation;//终点站
-        public string trainTimeTableExcelPath { set; get; }
+        public string TrainTimeTableUrl;//当前列车车次的服务器地址
+        public string TrainNo;//车次号
+        public string FromStation;//起点站
+        public string EndStation;//终点站
+        public string TrainTimeTableExcelPath { set; get; }
 
-        public TrainTimeTable(string _trainNo,string _fromStation,string _endStation,DateTime _selectDateTime)//构造当前列车车次的服务器地址
+        public TrainTimeTable(string trainNo, string fromStation, string endStation, DateTime selectDateTime)//构造当前列车车次的服务器地址
         {
-          trainTimeTableUrl = string.Format("https://kyfw.12306.cn/otn/czxx/queryByTrainNo?train_no=" +
-                     "{0}&from_station_telecode={1}&to_station_telecode={2}&depart_date={3}",
-                     _trainNo, _fromStation,_endStation, _selectDateTime.ToString("yyyy-MM-dd"));//此处的到站只有NJH和NKH
-            trainNo = _trainNo;
-            fromStation = _fromStation;
-            endStation = _endStation;
+            TrainTimeTableUrl = "https://kyfw.12306.cn/otn/czxx/queryByTrainNo?train_no=" +
+                                $"{trainNo}&from_station_telecode={fromStation}&to_station_telecode={endStation}&depart_date={selectDateTime.ToString("yyyy-MM-dd")}";//此处的到站只有NJH和NKH
+            TrainNo = trainNo;
+            FromStation = fromStation;
+            EndStation = endStation;
         }
 
-/// <summary>
-/// 输出具体车次时刻表的datatable。输出其excel，默认地址为桌面
-/// </summary>
-/// <returns></returns>
-        public  DataTable CreateTrainTimeDataTable()
+
+        /// <summary>
+        /// 输出具体车次时刻表的datatable。输出其excel，默认地址为桌面
+        /// </summary>
+        /// <returns></returns>
+        public DataTable CreateTrainTimeDataTable()
         {
-            JArray jArray=TrainsTickets.GetUrlJson(trainTimeTableUrl);
+            //Thread.Sleep(3000);
+            JArray jArray = TrainsTickets.GetUrlJson(TrainTimeTableUrl);
             DataTable dataTable = new DataTable(jArray[0]["station_train_code"].ToString());//表名为列车编号，这里需要注意的是json返回的数据结构、
             dataTable.Columns.Add("车次");
             dataTable.Columns.Add("站序");
@@ -58,17 +54,30 @@ namespace 沪宁高铁数据
                 dataRow["终点站"] = jArray[0]["end_station_name"];
                 dataTable.Rows.Add(dataRow);
             }
-            var trainTimeTableExcel = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + string.Format("\\trainTime_{0}.xlsx", DateTime.Now.ToString("yyyyMMddhhmmss"));//桌面上生成数据文件
-            if (this.trainTimeTableExcelPath == null)
-            {
-                this.trainTimeTableExcelPath = trainTimeTableExcel;
-            }
-            Excel.TableToExcel(dataTable,this.trainTimeTableExcelPath);
-            Console.WriteLine(string.Format("车次信息存储完毕，Excel地址为:\n{0}\n", this.trainTimeTableExcelPath));
+
+            //将datatable存储为excel
+            //var trainTimeTableExcel = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) +
+            //                          $"\\trainTime_{DateTime.Now:yyyyMMddhhmmss}.xlsx";//桌面上生成数据文件
+            //if (this.TrainTimeTableExcelPath == null)
+            //{
+            //    this.TrainTimeTableExcelPath = trainTimeTableExcel;
+            //}
+            //Excel.TableToExcel(dataTable, this.TrainTimeTableExcelPath);
+            //Console.WriteLine($"车次信息存储完毕，Excel地址为:\n{this.TrainTimeTableExcelPath}\n");
             return dataTable;
         }
 
-
-
+        public void DataTable2SqlServer(DataTable dt)
+        {
+            const string con = "Data Source=DESKTOP-49O35N0;Initial Catalog=GraduateProject;Integrated Security=True"; //数据库的 连接字符串
+            const string sql = "";//sql字符串执行
+            SqlConnection sqlConnection = new SqlConnection(con);
+            sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);//执行sql命令
+            SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(sqlConnection) { DestinationTableName = "TrainTimeTable" };
+            sqlBulkCopy.WriteToServer(dt);
+            sqlBulkCopy.Close();
+            Console.WriteLine("数据库更新完毕");
+        }
     }
 }

@@ -35,7 +35,6 @@
             this.生成2分格底图结构ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelofPic = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panelofPic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -86,36 +85,22 @@
             // panelofPic
             // 
             this.panelofPic.AutoScroll = true;
-            this.panelofPic.AutoScrollMargin = new System.Drawing.Size(100, 100);
-            this.panelofPic.AutoScrollMinSize = new System.Drawing.Size(100, 100);
             this.panelofPic.Controls.Add(this.pictureBox1);
-            this.panelofPic.Controls.Add(this.label1);
             this.panelofPic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelofPic.Location = new System.Drawing.Point(0, 28);
             this.panelofPic.Name = "panelofPic";
             this.panelofPic.Size = new System.Drawing.Size(902, 600);
-            this.panelofPic.TabIndex = 5;
-            this.panelofPic.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panelofPic_Scroll);
+            this.panelofPic.TabIndex = 0;
             this.panelofPic.Paint += new System.Windows.Forms.PaintEventHandler(this.panelofPic_Paint);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(35, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1019, 700);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(728, 528);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(864, 585);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
             // 
             // Form1
             // 
@@ -126,7 +111,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "列车交路勾画";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -144,7 +129,6 @@
         private System.Windows.Forms.ToolStripMenuItem 底图结构ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 生成底图结构ToolStripMenuItem;
         private System.Windows.Forms.Panel panelofPic;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem 生成5分格底图结构ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 生成2分格底图结构ToolStripMenuItem;

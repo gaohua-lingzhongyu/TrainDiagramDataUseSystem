@@ -40,7 +40,7 @@ namespace 毕业设计
         private Bitmap DrawTrainBasicPictureBorderLine(int mins)
         {
             //绘制边框
-            this.TrainBasicPictureBitMap = new Bitmap(2000, 1000);//这里的参数应该和输入的车站数量有关
+            this.TrainBasicPictureBitMap = new Bitmap(10000, 1000);//这里的参数应该和输入的车站数量有关
             Graphics g = Graphics.FromImage(this.TrainBasicPictureBitMap);
             Pen borderLinePen = new Pen(Color.Green, 3f);//定义画笔线宽和颜色
             g.DrawRectangle(borderLinePen, this.TrainBasicPicturePos.X, this.TrainBasicPicturePos.Y, (float)this.Width, (float)this.Height);//绘制边框

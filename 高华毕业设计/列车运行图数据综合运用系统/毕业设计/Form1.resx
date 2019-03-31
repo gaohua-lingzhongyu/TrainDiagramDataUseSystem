@@ -123,8 +123,4 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
-  <data name="Form1_Form1_Load_占位符" xml:space="preserve">
-    <value>占位符</value>
-    <comment>为了出现滚动条</comment>
-  </data>
 </root>

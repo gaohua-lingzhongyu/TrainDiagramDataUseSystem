@@ -42,5 +42,16 @@ namespace 毕业设计
             Directory.SetCurrentDirectory(folderBrowserDialog.SelectedPath);//设置当前的工作目录
             MessageBox.Show($@"当前的工作目录为   {folderBrowserDialog.SelectedPath}");
         }
+
+        private void 车次运营状态查看ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_trainTimeData trainIdForm=new Form_trainTimeData()
+                { TopLevel = false, Parent = this };
+            trainIdForm.Show();
+        }
+
+        private void 具体车次时刻表生成ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

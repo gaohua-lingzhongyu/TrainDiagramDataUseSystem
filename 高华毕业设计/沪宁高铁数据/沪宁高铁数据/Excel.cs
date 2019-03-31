@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
-using NPOI.HSSF.UserModel;
-using System.IO;
-using System.Data;
 using NPOI.XSSF.UserModel;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
 
 namespace 沪宁高铁数据
 {
-    class Excel
+    internal class Excel
     {
         /// <summary>
         /// Excel导入成Datable
@@ -30,7 +26,7 @@ namespace 沪宁高铁数据
                 if (workbook == null) { return null; }
                 ISheet sheet = workbook.GetSheetAt(0);
 
-                //表头  
+                //表头
                 IRow header = sheet.GetRow(sheet.FirstRowNum);
                 List<int> columns = new List<int>();
                 for (int i = 0; i < header.LastCellNum; i++)
@@ -44,7 +40,7 @@ namespace 沪宁高铁数据
                         dt.Columns.Add(new DataColumn(obj.ToString()));
                     columns.Add(i);
                 }
-                //数据  
+                //数据
                 for (int i = sheet.FirstRowNum + 1; i <= sheet.LastRowNum; i++)
                 {
                     DataRow dr = dt.NewRow();
@@ -79,7 +75,7 @@ namespace 沪宁高铁数据
             if (workbook == null) { return; }
             ISheet sheet = string.IsNullOrEmpty(dt.TableName) ? workbook.CreateSheet("Sheet1") : workbook.CreateSheet(dt.TableName);
 
-            //表头  
+            //表头
             IRow row = sheet.CreateRow(0);
             for (int i = 0; i < dt.Columns.Count; i++)
             {
@@ -87,7 +83,7 @@ namespace 沪宁高铁数据
                 cell.SetCellValue(dt.Columns[i].ColumnName);
             }
 
-            //数据  
+            //数据
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 IRow row1 = sheet.CreateRow(i + 1);
@@ -98,12 +94,12 @@ namespace 沪宁高铁数据
                 }
             }
 
-            //转为字节数组  
+            //转为字节数组
             MemoryStream stream = new MemoryStream();
             workbook.Write(stream);
             var buf = stream.ToArray();
 
-            //保存为Excel文件  
+            //保存为Excel文件
             using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate, FileAccess.Write))
             {
                 fs.Write(buf, 0, buf.Length);
@@ -122,21 +118,25 @@ namespace 沪宁高铁数据
                 return null;
             switch (cell.CellType)
             {
-                case CellType.Blank: //BLANK:  
+                case CellType.Blank: //BLANK:
                     return null;
-                case CellType.Boolean: //BOOLEAN:  
+
+                case CellType.Boolean: //BOOLEAN:
                     return cell.BooleanCellValue;
-                case CellType.Numeric: //NUMERIC:  
+
+                case CellType.Numeric: //NUMERIC:
                     return cell.NumericCellValue;
-                case CellType.String: //STRING:  
+
+                case CellType.String: //STRING:
                     return cell.StringCellValue;
-                case CellType.Error: //ERROR:  
+
+                case CellType.Error: //ERROR:
                     return cell.ErrorCellValue;
-                case CellType.Formula: //FORMULA:  
+
+                case CellType.Formula: //FORMULA:
                 default:
                     return "=" + cell.CellFormula;
             }
         }
-
     }
 }

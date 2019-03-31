@@ -50,6 +50,7 @@ namespace 毕业设计
             else
             {
                 Directory.CreateDirectory(newProjectFolder);//创建当前文件夹
+                this.Close();
             }
         }
 
