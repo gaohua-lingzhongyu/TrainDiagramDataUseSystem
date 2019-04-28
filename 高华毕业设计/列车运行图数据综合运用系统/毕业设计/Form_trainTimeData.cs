@@ -11,7 +11,8 @@ namespace 毕业设计
     {
         private DataSet _dataSet;
         private DataTable _dataTable;
-        string selectedTrainId;
+        private string _selectedTrainId;
+
         public Form_trainTimeData()
         {
             InitializeComponent();
@@ -76,8 +77,8 @@ namespace 毕业设计
             string trainKind = frmSelectOd.TrainKind;
             try
             {
-                DataTable dt = _dataSet.Tables["TrainId"];
-                foreach (DataRow dr in dt.Rows)
+                _dataTable = _dataSet.Tables["TrainId"];
+                foreach (DataRow dr in _dataTable.Rows)
                 {
                     if (!dr["车次"].ToString().Contains(trainKind))
                     {
@@ -95,7 +96,7 @@ namespace 毕业设计
                         }
                     }
                 }
-                datagridview_trainId.DataSource = dt;
+                datagridview_trainId.DataSource = _dataTable;
                 this.btn_export.Enabled = true;
             }
             catch (Exception exception)
@@ -116,30 +117,59 @@ namespace 毕业设计
                     FileName = (DateTime.Now.ToString("yyyyMMddhhmmss") + "车次表.xlsx").Replace(" ", "") //初始文件名
                 };
                 if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
-                Excel.TableToExcel(_dataTable, saveFileDialog.FileName);
+                DataTable exportDataTable = GetDgvToTable(this.datagridview_trainId);
+                Excel.TableToExcel(exportDataTable, saveFileDialog.FileName);
                 MessageBox.Show($"文件保存成功，路径为{saveFileDialog.FileName}");
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message+"操作有误，请重新筛选数据并导出");
-
+                MessageBox.Show(exception.Message + "操作有误，请重新筛选数据并导出");
             }
         }
 
         private void datagridview_trainId_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewRow dr  in datagridview_trainId.Rows)
+            foreach (DataGridViewRow dr in datagridview_trainId.Rows)
             {
                 if (dr.Selected != true) continue;
-                selectedTrainId = dr.Cells[2].Value.ToString();//被选中的车次
-                MessageBox.Show($"您被选中的车次是{selectedTrainId}");
+                _selectedTrainId = dr.Cells[2].Value.ToString();//被选中的车次
+                MessageBox.Show($"您被选中的车次是{_selectedTrainId}");
             }
 
+            //判断是否已经打开了列车时刻表的form
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.Name != "Form_trainTimeTable") continue;
+                frm.Text = $"{_selectedTrainId}车次的列车时刻表";
+                var formTrainTimeTable = (Form_trainTimeTable)frm;
+                formTrainTimeTable.TrainId = _selectedTrainId;
+                formTrainTimeTable.Refresh_DataGridView();
+            }
+        }
 
-            //将被选中车次的时刻表进行查询
-
-
-
+        /// <summary>
+        /// 读取datagridview数据到datatable
+        /// </summary>
+        /// <param name="dgv">datagridview</param>
+        /// <returns>datatable</returns>
+        public static DataTable GetDgvToTable(DataGridView dgv)
+        {
+            DataTable dt = new DataTable();
+            for (int count = 0; count < dgv.Columns.Count; count++)
+            {
+                DataColumn dc = new DataColumn(dgv.Columns[count].Name.ToString());
+                dt.Columns.Add(dc);
+            }
+            for (int count = 0; count < dgv.Rows.Count; count++)
+            {
+                DataRow dr = dt.NewRow();
+                for (int countsub = 0; countsub < dgv.Columns.Count; countsub++)
+                {
+                    dr[countsub] = Convert.ToString(dgv.Rows[count].Cells[countsub].Value);
+                }
+                dt.Rows.Add(dr);
+            }
+            return dt;
         }
     }
 }

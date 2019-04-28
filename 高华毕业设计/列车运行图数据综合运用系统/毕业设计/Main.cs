@@ -45,14 +45,14 @@ namespace 毕业设计
 
         private void 车次运营状态查看ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_trainTimeData trainIdForm=new Form_trainTimeData()
-                { TopLevel = false, Parent = this };
+            Form_trainTimeData trainIdForm = new Form_trainTimeData()
+            { TopLevel = false, Parent = this };
             trainIdForm.Show();
         }
 
         private void 具体车次时刻表生成ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_trainTimeTable formTrainTimeTable=new Form_trainTimeTable() { TopLevel = false, Parent = this };
+            Form_trainTimeTable formTrainTimeTable = new Form_trainTimeTable() { TopLevel = false, Parent = this };
             formTrainTimeTable.Show();
         }
     }

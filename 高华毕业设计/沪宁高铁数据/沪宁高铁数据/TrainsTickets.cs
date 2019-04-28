@@ -29,6 +29,7 @@ namespace 沪宁高铁数据
         /// <returns></returns>
         public static JArray GetUrlJson(string url)
         {
+            Console.WriteLine("即将向12306发送请求");
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             // ReSharper disable once AssignNullToNotNullAttribute
             request.Proxy = null;
@@ -45,8 +46,10 @@ namespace 沪宁高铁数据
             request.Headers.Add("X-Requested-With", "XMLHttpRequest");
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream myResponseStream = response.GetResponseStream();
+            Console.WriteLine("请求发送成功");
             StreamReader myStreamReader = new StreamReader(myResponseStream ?? throw new InvalidOperationException(), Encoding.UTF8);
             string retString = myStreamReader.ReadToEnd();
+            Console.WriteLine("读取服务器返回信息");
             myStreamReader.Close();
             myResponseStream.Close();
             response.Close();

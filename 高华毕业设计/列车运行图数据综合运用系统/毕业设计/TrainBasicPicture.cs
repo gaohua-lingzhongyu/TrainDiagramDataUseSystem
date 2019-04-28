@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace 毕业设计
 {
@@ -40,13 +41,13 @@ namespace 毕业设计
         private Bitmap DrawTrainBasicPictureBorderLine(int mins)
         {
             //绘制边框
-            this.TrainBasicPictureBitMap = new Bitmap(10000, 1000);//这里的参数应该和输入的车站数量有关
+            this.TrainBasicPictureBitMap = new Bitmap((int)this.Width + 100, (int)this.Height+50 );//参数控制的是图纸的空白长度
             Graphics g = Graphics.FromImage(this.TrainBasicPictureBitMap);
             Pen borderLinePen = new Pen(Color.Green, 3f);//定义画笔线宽和颜色
             g.DrawRectangle(borderLinePen, this.TrainBasicPicturePos.X, this.TrainBasicPicturePos.Y, (float)this.Width, (float)this.Height);//绘制边框
 
             //绘制纵向小时时间格线
-            Pen pen = new Pen(Color.Green, 2.5f);//定义画笔对象
+            Pen pen = new Pen(Color.Green, 3f);//定义画笔对象
             IEnumerable<PointF> tableLineStartPoints = GetHourLinePoints((int)this.Width, (int)this.Height, 24, out List<PointF> tableLineEndPoints);
             var index = 0;
             foreach (var item in tableLineStartPoints)
@@ -59,13 +60,24 @@ namespace 毕业设计
 
             //绘制纵向的分钟时间线
             Pen lineMinutesPen = new Pen(Color.Green, 0.5f);//定义画笔线宽和颜色
+            Pen halfHourPen = new Pen(Color.ForestGreen, 2f)
+            { DashStyle = DashStyle.Custom, DashPattern = new float[] { 5, 5 } };
             for (int i = 1; i < 24; i++)//s每一个小时间隙
             {
                 IEnumerable<PointF> lineMinutesStartPoints = GetLineMinutesPoints(i, mins, out List<PointF> lineMinutesEndPoints);
                 index = 0;
+
                 foreach (var item in lineMinutesStartPoints)//每一条分钟线
                 {
-                    g.DrawLine(lineMinutesPen, item, lineMinutesEndPoints[index]);
+                    if ((index % 3) == 0 & (index % 2 != 0))
+                    {
+                        g.DrawLine(halfHourPen, item, lineMinutesEndPoints[index]);
+                    }
+                    else
+                    {
+                        g.DrawLine(lineMinutesPen, item, lineMinutesEndPoints[index]);
+                    }
+
                     index++;
                 }
             }

@@ -81,6 +81,12 @@
     <Compile Include="Form_trainTimeTable.Designer.cs">
       <DependentUpon>Form_trainTimeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="JiaoLuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JiaoLuForm.Designer.cs">
+      <DependentUpon>JiaoLuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Line.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -102,7 +108,9 @@
     <Compile Include="Form_Select_OD.Designer.cs">
       <DependentUpon>Form_Select_OD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train.cs" />
     <Compile Include="TrainBasicPicture.cs" />
+    <Compile Include="Trains.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_trainTimeTable.resx">
       <DependentUpon>Form_trainTimeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JiaoLuForm.resx">
+      <DependentUpon>JiaoLuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
