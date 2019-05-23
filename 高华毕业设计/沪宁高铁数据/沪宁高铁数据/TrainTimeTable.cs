@@ -55,15 +55,18 @@ namespace 沪宁高铁数据
                 dataTable.Rows.Add(dataRow);
             }
 
+
+
+            ///展示部分可以使用
             //将datatable存储为excel
-            //var trainTimeTableExcel = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) +
-            //                          $"\\trainTime_{DateTime.Now:yyyyMMddhhmmss}.xlsx";//桌面上生成数据文件
-            //if (this.TrainTimeTableExcelPath == null)
-            //{
-            //    this.TrainTimeTableExcelPath = trainTimeTableExcel;
-            //}
-            //Excel.TableToExcel(dataTable, this.TrainTimeTableExcelPath);
-            //Console.WriteLine($"车次信息存储完毕，Excel地址为:\n{this.TrainTimeTableExcelPath}\n");
+            var trainTimeTableExcel = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) +
+                                      $"\\trainTime_{DateTime.Now:yyyyMMddhhmmss}.xlsx";//桌面上生成数据文件
+            if (this.TrainTimeTableExcelPath == null)
+            {
+                this.TrainTimeTableExcelPath = trainTimeTableExcel;
+            }
+            Excel.TableToExcel(dataTable, this.TrainTimeTableExcelPath);
+            Console.WriteLine($"车次信息存储完毕，Excel地址为:\n{this.TrainTimeTableExcelPath}\n");
             return dataTable;
         }
 

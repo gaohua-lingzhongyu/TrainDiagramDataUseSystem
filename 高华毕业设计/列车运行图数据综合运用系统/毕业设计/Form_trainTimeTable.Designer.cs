@@ -31,7 +31,6 @@
             this.dataGridView_trainTimeData = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_paint = new System.Windows.Forms.Button();
             this.btn_export = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_trainTimeData)).BeginInit();
             this.panel1.SuspendLayout();
@@ -61,25 +60,15 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btn_paint);
             this.panel2.Controls.Add(this.btn_export);
             this.panel2.Location = new System.Drawing.Point(12, 385);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(776, 53);
             this.panel2.TabIndex = 2;
             // 
-            // btn_paint
-            // 
-            this.btn_paint.Location = new System.Drawing.Point(624, 3);
-            this.btn_paint.Name = "btn_paint";
-            this.btn_paint.Size = new System.Drawing.Size(149, 47);
-            this.btn_paint.TabIndex = 1;
-            this.btn_paint.Text = "添加列车运行线";
-            this.btn_paint.UseVisualStyleBackColor = true;
-            // 
             // btn_export
             // 
-            this.btn_export.Location = new System.Drawing.Point(486, 3);
+            this.btn_export.Location = new System.Drawing.Point(617, 3);
             this.btn_export.Name = "btn_export";
             this.btn_export.Size = new System.Drawing.Size(122, 47);
             this.btn_export.TabIndex = 0;
@@ -110,7 +99,6 @@
         private System.Windows.Forms.DataGridView dataGridView_trainTimeData;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btn_paint;
         private System.Windows.Forms.Button btn_export;
     }
 }

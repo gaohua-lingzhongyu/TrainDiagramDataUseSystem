@@ -371,9 +371,9 @@ namespace 毕业设计
 
     public class TrainLine
     {
-        public PointF StartPo;
-        public PointF EndPo;
-        public bool BeSelected;
+        public PointF StartPo;//起点
+        public PointF EndPo;//终点
+        public bool BeSelected;//是否被选中
 
         public TrainLine(PointF startPo, PointF endPo)
         {

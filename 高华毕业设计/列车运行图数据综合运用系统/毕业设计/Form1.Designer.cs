@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.底图结构ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.生成底图结构ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.生成2分格底图结构ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.绘制列车运行线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.沪宁线高铁车次绘制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.所有列车时刻信息导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +39,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_stations = new System.Windows.Forms.Panel();
             this.pictureBox_stations = new System.Windows.Forms.PictureBox();
+            this.动车所能力限制交路勾画ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成底图结构ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成2分格底图结构ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.底图结构ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panelofPic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,29 +63,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(985, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 底图结构ToolStripMenuItem
-            // 
-            this.底图结构ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.生成底图结构ToolStripMenuItem,
-            this.生成2分格底图结构ToolStripMenuItem});
-            this.底图结构ToolStripMenuItem.Name = "底图结构ToolStripMenuItem";
-            this.底图结构ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
-            this.底图结构ToolStripMenuItem.Text = "底图结构";
-            // 
-            // 生成底图结构ToolStripMenuItem
-            // 
-            this.生成底图结构ToolStripMenuItem.Name = "生成底图结构ToolStripMenuItem";
-            this.生成底图结构ToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
-            this.生成底图结构ToolStripMenuItem.Text = "生成10分格底图结构";
-            this.生成底图结构ToolStripMenuItem.Click += new System.EventHandler(this.生成底图结构ToolStripMenuItem_Click_1);
-            // 
-            // 生成2分格底图结构ToolStripMenuItem
-            // 
-            this.生成2分格底图结构ToolStripMenuItem.Name = "生成2分格底图结构ToolStripMenuItem";
-            this.生成2分格底图结构ToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
-            this.生成2分格底图结构ToolStripMenuItem.Text = "生成2分格底图结构";
-            this.生成2分格底图结构ToolStripMenuItem.Click += new System.EventHandler(this.生成2分格底图结构ToolStripMenuItem_Click);
             // 
             // 绘制列车运行线ToolStripMenuItem
             // 
@@ -112,14 +90,15 @@
             // 导出为excel文件ToolStripMenuItem
             // 
             this.导出为excel文件ToolStripMenuItem.Name = "导出为excel文件ToolStripMenuItem";
-            this.导出为excel文件ToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.导出为excel文件ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.导出为excel文件ToolStripMenuItem.Text = "导出为excel文件";
             this.导出为excel文件ToolStripMenuItem.Click += new System.EventHandler(this.导出为excel文件ToolStripMenuItem_Click);
             // 
             // 交路勾画ToolStripMenuItem
             // 
             this.交路勾画ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.自动勾画交路ToolStripMenuItem});
+            this.自动勾画交路ToolStripMenuItem,
+            this.动车所能力限制交路勾画ToolStripMenuItem});
             this.交路勾画ToolStripMenuItem.Name = "交路勾画ToolStripMenuItem";
             this.交路勾画ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.交路勾画ToolStripMenuItem.Text = "交路勾画";
@@ -127,8 +106,8 @@
             // 自动勾画交路ToolStripMenuItem
             // 
             this.自动勾画交路ToolStripMenuItem.Name = "自动勾画交路ToolStripMenuItem";
-            this.自动勾画交路ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.自动勾画交路ToolStripMenuItem.Text = "自动勾画交路";
+            this.自动勾画交路ToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.自动勾画交路ToolStripMenuItem.Text = "接续最紧凑自动勾画交路";
             this.自动勾画交路ToolStripMenuItem.Click += new System.EventHandler(this.自动勾画交路ToolStripMenuItem_Click);
             // 
             // panelofPic
@@ -172,6 +151,36 @@
             this.pictureBox_stations.TabIndex = 0;
             this.pictureBox_stations.TabStop = false;
             // 
+            // 动车所能力限制交路勾画ToolStripMenuItem
+            // 
+            this.动车所能力限制交路勾画ToolStripMenuItem.Name = "动车所能力限制交路勾画ToolStripMenuItem";
+            this.动车所能力限制交路勾画ToolStripMenuItem.Size = new System.Drawing.Size(264, 26);
+            this.动车所能力限制交路勾画ToolStripMenuItem.Text = "能力限制下的交路自动勾画";
+            this.动车所能力限制交路勾画ToolStripMenuItem.Click += new System.EventHandler(this.动车所能力限制交路勾画ToolStripMenuItem_Click);
+            // 
+            // 生成底图结构ToolStripMenuItem
+            // 
+            this.生成底图结构ToolStripMenuItem.Name = "生成底图结构ToolStripMenuItem";
+            this.生成底图结构ToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.生成底图结构ToolStripMenuItem.Text = "生成10分格底图结构";
+            this.生成底图结构ToolStripMenuItem.Click += new System.EventHandler(this.生成底图结构ToolStripMenuItem_Click_1);
+            // 
+            // 生成2分格底图结构ToolStripMenuItem
+            // 
+            this.生成2分格底图结构ToolStripMenuItem.Name = "生成2分格底图结构ToolStripMenuItem";
+            this.生成2分格底图结构ToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.生成2分格底图结构ToolStripMenuItem.Text = "生成2分格底图结构";
+            this.生成2分格底图结构ToolStripMenuItem.Click += new System.EventHandler(this.生成2分格底图结构ToolStripMenuItem_Click);
+            // 
+            // 底图结构ToolStripMenuItem
+            // 
+            this.底图结构ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.生成底图结构ToolStripMenuItem,
+            this.生成2分格底图结构ToolStripMenuItem});
+            this.底图结构ToolStripMenuItem.Name = "底图结构ToolStripMenuItem";
+            this.底图结构ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.底图结构ToolStripMenuItem.Text = "底图结构";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -198,10 +207,7 @@
 
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 底图结构ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 生成底图结构ToolStripMenuItem;
         private System.Windows.Forms.Panel panelofPic;
-        private System.Windows.Forms.ToolStripMenuItem 生成2分格底图结构ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 绘制列车运行线ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 沪宁线高铁车次绘制ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 所有列车时刻信息导出ToolStripMenuItem;
@@ -211,6 +217,10 @@
         private System.Windows.Forms.Panel panel_stations;
         private System.Windows.Forms.PictureBox pictureBox_stations;
         public System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem 动车所能力限制交路勾画ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 底图结构ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 生成底图结构ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 生成2分格底图结构ToolStripMenuItem;
     }
 }
 

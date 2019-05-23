@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace 毕业设计
 {
@@ -54,6 +56,15 @@ namespace 毕业设计
         {
             Form_trainTimeTable formTrainTimeTable = new Form_trainTimeTable() { TopLevel = false, Parent = this };
             formTrainTimeTable.Show();
+        }
+
+        private void 网站数据抓取ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Process pro_get12306Data = new Process {StartInfo = {FileName = @".\数据爬取部分\Debug\沪宁高铁数据.exe"}};
+            pro_get12306Data.Start();
+            pro_get12306Data.WaitForExit();
+            pro_get12306Data.Dispose();
         }
     }
 }

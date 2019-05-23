@@ -35,6 +35,7 @@
             this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打开已有项目ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.网站数据抓取ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.运行图生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.运行图会长ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.列车时刻表查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,9 +99,18 @@
             // 
             // 数据导入ToolStripMenuItem
             // 
+            this.数据导入ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.网站数据抓取ToolStripMenuItem});
             this.数据导入ToolStripMenuItem.Name = "数据导入ToolStripMenuItem";
             this.数据导入ToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.数据导入ToolStripMenuItem.Text = "数据导入";
+            // 
+            // 网站数据抓取ToolStripMenuItem
+            // 
+            this.网站数据抓取ToolStripMenuItem.Name = "网站数据抓取ToolStripMenuItem";
+            this.网站数据抓取ToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.网站数据抓取ToolStripMenuItem.Text = "12306网站数据爬取";
+            this.网站数据抓取ToolStripMenuItem.Click += new System.EventHandler(this.网站数据抓取ToolStripMenuItem_Click);
             // 
             // 运行图生成ToolStripMenuItem
             // 
@@ -129,14 +139,14 @@
             // 车次运营状态查看ToolStripMenuItem
             // 
             this.车次运营状态查看ToolStripMenuItem.Name = "车次运营状态查看ToolStripMenuItem";
-            this.车次运营状态查看ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.车次运营状态查看ToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
             this.车次运营状态查看ToolStripMenuItem.Text = "车次运营状态查看";
             this.车次运营状态查看ToolStripMenuItem.Click += new System.EventHandler(this.车次运营状态查看ToolStripMenuItem_Click);
             // 
             // 具体车次时刻表生成ToolStripMenuItem
             // 
             this.具体车次时刻表生成ToolStripMenuItem.Name = "具体车次时刻表生成ToolStripMenuItem";
-            this.具体车次时刻表生成ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.具体车次时刻表生成ToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
             this.具体车次时刻表生成ToolStripMenuItem.Text = "车次时刻表操作";
             this.具体车次时刻表生成ToolStripMenuItem.Click += new System.EventHandler(this.具体车次时刻表生成ToolStripMenuItem_Click);
             // 
@@ -149,7 +159,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
-            this.Text = "Main";
+            this.Text = "列车运行图数据综合应用系统";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -172,5 +182,6 @@
         private System.Windows.Forms.ToolStripMenuItem 列车时刻表查看ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 车次运营状态查看ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 具体车次时刻表生成ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 网站数据抓取ToolStripMenuItem;
     }
 }

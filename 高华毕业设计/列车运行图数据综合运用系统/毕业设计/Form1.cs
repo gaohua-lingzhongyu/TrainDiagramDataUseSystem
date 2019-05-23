@@ -81,11 +81,11 @@ namespace 毕业设计
         /// <param name="e"></param>
         public void 沪宁线高铁车次绘制ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             markedTrains.Clear();//刷新操作之后，被选中的列车不再算数
 
             //设置滚动条的位置，防止刷新时左边的车站不对
             this.panelofPic.HorizontalScroll.Value = 0;
+            this.pictureBox_stations.Image = null;//点击刷新的时候进行左侧的车站情况置空
             //默认是生成2分格的底图结构
             pictureBox1.Height = this.panelofPic.Height - 30;//注意这里参数控制的是下面的白带宽度（picturebox能否使得pannel出现滚动条）
 
@@ -95,7 +95,7 @@ namespace 毕业设计
                 Width = this.pictureBox1.Width - 40,//控制的是图和picturebox之间的关系
                 Height = this.pictureBox1.Height - 80,//控制的是图和picturebox之间的关系
                 TrainBasicPicturePos =
-                    new PointF(this.pictureBox1.Location.X+10 , this.pictureBox1.Location.Y+30)
+                    new PointF(this.pictureBox1.Location.X + 10, this.pictureBox1.Location.Y + 30)
             }; //声明5分格底图结构实例
             trainsDiagram = trainBasicPicture2.DrawTrainBasicPicture(TrainBasicPicture.Scale.TenMinutes);
 
@@ -110,43 +110,37 @@ namespace 毕业设计
                     {
                         Train train = new Train
                         {
-                            TrainId = trainIdList[i],//车次
-                            BasicBitmap = trainsDiagram,//存储图
-                            trainBasicPicture = trainBasicPicture2,//底图对象
+                            TrainId = trainIdList[i], //车次
+                            BasicBitmap = trainsDiagram, //存储图
+                            trainBasicPicture = trainBasicPicture2, //底图对象
                             isFirstTrain = true
                         };
                         trainsDiagram = train.DrawTrainLine(out List<TrainLine> trainLineList);
                         //注意这里需要区分列车是上行还是下行，它们的起始点相反
 
-
-                        if (int.Parse(train.TrainId.Replace("G", "")) % 2 == 0)//如果是上南方向
-                        {
-                            trains.Add(new Trains(trainLineList, train.TrainId, trainLineList[trainLineList.Count - 1].EndPo, trainLineList[0].StartPo));
-                        }
-                        else
-                        {
-                            trains.Add(new Trains(trainLineList, train.TrainId, trainLineList[0].StartPo, trainLineList[trainLineList.Count - 1].EndPo));
-                        }
-
+                        trains.Add(new Trains(trainLineList, train.TrainId, trainLineList[0].StartPo,
+                            trainLineList[trainLineList.Count - 1].EndPo));
                     }
                     else
                     {
                         Train train = new Train
-                        {    
-                            TrainId = trainIdList[i],//车次
-                            BasicBitmap = trainsDiagram,//存储图
-                            trainBasicPicture = trainBasicPicture2,//底图对象
+                        {
+                            TrainId = trainIdList[i], //车次
+                            BasicBitmap = trainsDiagram, //存储图
+                            trainBasicPicture = trainBasicPicture2, //底图对象
                             isFirstTrain = false
                         };
                         trainsDiagram = train.DrawTrainLine(out List<TrainLine> trainLineList);
 
                         if (int.Parse(train.TrainId.Replace("G", "")) % 2 == 0)
                         {
-                            trains.Add(new Trains(trainLineList, train.TrainId, trainLineList[trainLineList.Count - 1].EndPo, trainLineList[0].StartPo));
+                            trains.Add(new Trains(trainLineList, train.TrainId, trainLineList[0].StartPo,
+                                trainLineList[trainLineList.Count - 1].EndPo));
                         }
                         else
                         {
-                            trains.Add(new Trains(trainLineList, train.TrainId, trainLineList[0].StartPo, trainLineList[trainLineList.Count - 1].EndPo));
+                            trains.Add(new Trains(trainLineList, train.TrainId,
+                                trainLineList[trainLineList.Count - 1].EndPo, trainLineList[0].StartPo));
                         }
                     }
 
@@ -206,7 +200,6 @@ namespace 毕业设计
                         bool hasLineBeSelected = false;
                         Pen pen = new Pen(Color.Red, 3f);
 
-
                         ///为了避免出现点击选中时，从索引最小的开始选，这里将列车的顺序进行随机排序
                         Random random = new Random();
                         List<Trains> newtrains = new List<Trains>();
@@ -237,7 +230,6 @@ namespace 毕业设计
                                     g.DrawLine(pen, line.StartPo, line.EndPo);
                                 }
 
-
                                 //更换picturebox的图片
                                 if (MessageBox.Show("您选中的车次是" + train.trainId, "确定选中车次", MessageBoxButtons.OKCancel) == DialogResult.OK)//确认是否为选中的车次
                                 {
@@ -256,6 +248,8 @@ namespace 毕业设计
                                 newtrains.Remove(train);
                                 return;
                             }
+
+                            markedTrains = markedTrains.Distinct().ToList();//去重
                         }
                     }
                 }
@@ -352,8 +346,7 @@ namespace 毕业设计
         private async void 自动勾画交路ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //从数据库中导出勾画交路所需要的原始数据
-
-           this.沪宁线高铁车次绘制ToolStripMenuItem_Click(sender, e);
+            this.沪宁线高铁车次绘制ToolStripMenuItem_Click(sender, e);
             DataSet dataSet = new DataSet();
             try
             {
@@ -373,32 +366,28 @@ namespace 毕业设计
                 throw;
             }
 
-            //await Task.Run(() =>
-            //{
-            //    Directory.SetCurrentDirectory(@".\Python\车底勾画\");//设置python文件运行的路径
-            //    Process process = new Process { StartInfo = { FileName = @".\车底勾画.exe" } };//启动python
-            //    process.Start();
-            //    process.WaitForExit();
-            //    process.Dispose();
-            //});
+            await Task.Run(() =>
+            {
+                Directory.SetCurrentDirectory(@".\Python\车底勾画\");//设置python文件运行的路径
+                Process process = new Process { StartInfo = { FileName = @".\车底勾画.exe" } };//启动python
+                process.Start();
+                process.WaitForExit();
+                process.Dispose();
+            });
 
-            //DirectoryInfo currentDirectoryInfoParent = Directory.GetParent(Directory.GetCurrentDirectory());//重新设置主程序运行的路径
-            //if (currentDirectoryInfoParent.Parent != null)
-            //    Directory.SetCurrentDirectory(currentDirectoryInfoParent.Parent.FullName);
-
+            DirectoryInfo currentDirectoryInfoParent = Directory.GetParent(Directory.GetCurrentDirectory());//重新设置主程序运行的路径
+            if (currentDirectoryInfoParent.Parent != null)
+                Directory.SetCurrentDirectory(currentDirectoryInfoParent.Parent.FullName);
 
             JiaoLuForm jiaoluForm = new JiaoLuForm(this)
             {
                 trainDiagraph = DeepClone(trainsDiagram),
-                allTrains = this.trains//图里的所有列车集合
+                allTrains = this.trains,//图里的所有列车集合
+                dataFilePath=@".\Python\车底勾画\data\交路勾画方案.xlsx"
             };
-
-
 
             jiaoluForm.Show(this);//窗体之间通信
         }
-
-
 
         //深度复制bitmap
         public Bitmap DeepClone(Bitmap bitmap)
@@ -415,9 +404,39 @@ namespace 毕业设计
             return dstBitmap;
         }
 
+        private async void 动车所能力限制交路勾画ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //从数据库中导出勾画交路所需要的原始数据
+            this.沪宁线高铁车次绘制ToolStripMenuItem_Click(sender, e);//先画原始的列车运行图
+            //算法计算引擎
+            await Task.Run(() =>
+                {
 
+                    Directory.SetCurrentDirectory(@".\能力限制下的交路自动勾画");//设置当前的运行路径
+                    //新开一个线程进行交路的算法引擎的运行
+                    System.Diagnostics.Process p = new System.Diagnostics.Process
+                    {
+                        StartInfo =
+                            {
+                                FileName = @".\test.exe",
+                            }
+                    };
+                    p.Start();
+                    p.WaitForExit();
+                    p.Dispose();
+                });
+            //运行路径恢复
+            DirectoryInfo currentDirectoryInfoParent = Directory.GetParent(Directory.GetCurrentDirectory());//重新设置主程序运行的路径
+            if (currentDirectoryInfoParent.Parent != null)
+                Directory.SetCurrentDirectory(currentDirectoryInfoParent.FullName);
+
+            JiaoLuForm capacity_limited_form = new JiaoLuForm(this)
+            {
+                allTrains = this.trains,
+                dataFilePath = @".\能力限制下的交路自动勾画\hello\交路勾画方案既定.xlsx",
+                trainDiagraph = DeepClone(trainsDiagram)
+            };
+            capacity_limited_form.Show(this);
+        }
     }
-
-
-
 }

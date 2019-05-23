@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace 毕业设计
 {
-
     //代表的是运行图里面的一个列车
-   public class Trains
+    public class Trains
     {
         public List<TrainLine> sections;
         public bool beSelected;//用来记录绘图时车是否被选中，在绘图结束后仍然为false
@@ -25,6 +20,5 @@ namespace 毕业设计
             this.endPo = endPo;
             this.beSelected = false;
         }
-
     }
 }
