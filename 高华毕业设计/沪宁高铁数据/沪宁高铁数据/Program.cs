@@ -37,33 +37,29 @@ namespace 沪宁高铁数据
 
 
             Console.WriteLine("按下回车键进行爬取每一个车次的时刻表信息(*^_^*)");
-            Console.ReadKey();
 
-            ///时刻表爬取部分
-            List<string> bugTrain = new List<string>();
-            for (int i = 0; i < trainNoLists.Count; i++)
+            while (Console.ReadKey(true).Key==ConsoleKey.Enter)
             {
-
-
-                //拿到第一列车的时刻表信息
-                TrainTimeTable trainTimeTable = new TrainTimeTable(trainNoLists[i], trainStartStationLists[i], trainEndStationLists[i], trainsTickets.SelectDateTime);
-                try
+                ///时刻表爬取部分
+                List<string> bugTrain = new List<string>();
+                for (int i = 0; i < trainNoLists.Count; i++)
                 {
-                    DataTable dataTable = trainTimeTable.CreateTrainTimeDataTable();
-                    trainTimeTable.DataTable2SqlServer(dataTable);
-                    Console.WriteLine(
-        $"车次{trainTimeTable.TrainNo}时刻表信息存储完毕\n-------------------------------------------------------------------------------------------------------");
+                    //拿到第一列车的时刻表信息
+                    TrainTimeTable trainTimeTable = new TrainTimeTable(trainNoLists[i], trainStartStationLists[i], trainEndStationLists[i], trainsTickets.SelectDateTime);
+                    try
+                    {
+                        DataTable dataTable = trainTimeTable.CreateTrainTimeDataTable();
+                        trainTimeTable.DataTable2SqlServer(dataTable);
+                        Console.WriteLine(
+            $"车次{trainTimeTable.TrainNo}时刻表信息存储完毕\n-------------------------------------------------------------------------------------------------------");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        bugTrain.Add(trainNoLists[i]);
+                    }
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                    bugTrain.Add(trainNoLists[i]);
-                }
-
             }
-
-
-
 
             Console.ReadKey();
         }

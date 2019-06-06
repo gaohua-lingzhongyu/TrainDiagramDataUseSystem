@@ -8,7 +8,7 @@ namespace 毕业设计
 {
     public partial class JiaoLuForm : Form
     {
-        private static Form1 paintForm1 = null;
+        private static Form1 paintForm1;
         public Bitmap trainDiagraph { set; get; }
         public List<Trains> allTrains { set; get; }
         public string dataFilePath { set; get; }
