@@ -171,5 +171,10 @@ namespace 毕业设计
             }
             return dt;
         }
+
+        private void datagridview_trainId_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

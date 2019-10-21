@@ -26,7 +26,7 @@ namespace 毕业设计
                 SqlConnection connection = new SqlConnection("Data Source=DESKTOP-49O35N0;Initial Catalog=GraduateProject;Integrated Security=True");
                 connection.Open();
                 DataSet dataSet = new DataSet();
-                string sqlStr = $"SELECT * FROM TrainTimeTable WHERE 车次 ='{TrainId}' ";
+                string sqlStr = $"SELECT DISTINCT * FROM TrainTimeTable WHERE 车次 ='{TrainId}' ";
                 SqlDataAdapter adapter = new SqlDataAdapter(sqlStr, connection);
                 MessageBox.Show("数据库连接成功");
                 adapter.Fill(dataSet, "TrainId_TimeTable");

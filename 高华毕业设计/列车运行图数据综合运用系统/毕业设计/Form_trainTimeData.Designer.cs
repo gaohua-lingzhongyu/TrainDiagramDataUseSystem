@@ -31,10 +31,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.datagridview_trainId = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_OD = new System.Windows.Forms.Button();
-            this.btn_select_item = new System.Windows.Forms.Button();
-            this.btn_export = new System.Windows.Forms.Button();
             this.btn_view_all = new System.Windows.Forms.Button();
+            this.btn_select_item = new System.Windows.Forms.Button();
+            this.btn_OD = new System.Windows.Forms.Button();
+            this.btn_export = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridview_trainId)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -71,6 +71,7 @@
             this.datagridview_trainId.Size = new System.Drawing.Size(726, 445);
             this.datagridview_trainId.TabIndex = 0;
             this.datagridview_trainId.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridview_trainId_CellClick);
+            this.datagridview_trainId.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridview_trainId_CellContentClick);
             // 
             // tableLayoutPanel2
             // 
@@ -90,15 +91,15 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(156, 280);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // btn_OD
+            // btn_view_all
             // 
-            this.btn_OD.Location = new System.Drawing.Point(3, 111);
-            this.btn_OD.Name = "btn_OD";
-            this.btn_OD.Size = new System.Drawing.Size(144, 56);
-            this.btn_OD.TabIndex = 3;
-            this.btn_OD.Text = "筛选条件";
-            this.btn_OD.UseVisualStyleBackColor = true;
-            this.btn_OD.Click += new System.EventHandler(this.btn_OD_Click);
+            this.btn_view_all.Location = new System.Drawing.Point(3, 3);
+            this.btn_view_all.Name = "btn_view_all";
+            this.btn_view_all.Size = new System.Drawing.Size(144, 45);
+            this.btn_view_all.TabIndex = 1;
+            this.btn_view_all.Text = "查看所有车次信息";
+            this.btn_view_all.UseVisualStyleBackColor = true;
+            this.btn_view_all.Click += new System.EventHandler(this.btn_view_all_Click);
             // 
             // btn_select_item
             // 
@@ -110,6 +111,16 @@
             this.btn_select_item.UseVisualStyleBackColor = true;
             this.btn_select_item.Click += new System.EventHandler(this.btn_select_item_Click);
             // 
+            // btn_OD
+            // 
+            this.btn_OD.Location = new System.Drawing.Point(3, 111);
+            this.btn_OD.Name = "btn_OD";
+            this.btn_OD.Size = new System.Drawing.Size(144, 56);
+            this.btn_OD.TabIndex = 3;
+            this.btn_OD.Text = "筛选条件";
+            this.btn_OD.UseVisualStyleBackColor = true;
+            this.btn_OD.Click += new System.EventHandler(this.btn_OD_Click);
+            // 
             // btn_export
             // 
             this.btn_export.Location = new System.Drawing.Point(6, 407);
@@ -119,16 +130,6 @@
             this.btn_export.Text = "右表数据导出";
             this.btn_export.UseVisualStyleBackColor = true;
             this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
-            // 
-            // btn_view_all
-            // 
-            this.btn_view_all.Location = new System.Drawing.Point(3, 3);
-            this.btn_view_all.Name = "btn_view_all";
-            this.btn_view_all.Size = new System.Drawing.Size(144, 45);
-            this.btn_view_all.TabIndex = 1;
-            this.btn_view_all.Text = "查看所有车次信息";
-            this.btn_view_all.UseVisualStyleBackColor = true;
-            this.btn_view_all.Click += new System.EventHandler(this.btn_view_all_Click);
             // 
             // Form_trainTimeData
             // 

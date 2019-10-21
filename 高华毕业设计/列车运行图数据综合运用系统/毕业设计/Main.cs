@@ -60,7 +60,6 @@ namespace 毕业设计
 
         private void 网站数据抓取ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             Process pro_get12306Data = new Process {StartInfo = {FileName = @".\数据爬取部分\Debug\沪宁高铁数据.exe"}};
             pro_get12306Data.Start();
             pro_get12306Data.WaitForExit();

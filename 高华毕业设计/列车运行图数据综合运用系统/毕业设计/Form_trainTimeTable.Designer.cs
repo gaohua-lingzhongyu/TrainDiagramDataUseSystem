@@ -41,8 +41,10 @@
             // 
             this.dataGridView_trainTimeData.AllowUserToAddRows = false;
             this.dataGridView_trainTimeData.AllowUserToDeleteRows = false;
+            this.dataGridView_trainTimeData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_trainTimeData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_trainTimeData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_trainTimeData.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_trainTimeData.Name = "dataGridView_trainTimeData";
             this.dataGridView_trainTimeData.ReadOnly = true;
@@ -52,6 +54,9 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dataGridView_trainTimeData);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
@@ -60,14 +65,18 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.btn_export);
-            this.panel2.Location = new System.Drawing.Point(12, 385);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 397);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(776, 53);
+            this.panel2.Size = new System.Drawing.Size(800, 53);
             this.panel2.TabIndex = 2;
             // 
             // btn_export
             // 
+            this.btn_export.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_export.Location = new System.Drawing.Point(617, 3);
             this.btn_export.Name = "btn_export";
             this.btn_export.Size = new System.Drawing.Size(122, 47);
